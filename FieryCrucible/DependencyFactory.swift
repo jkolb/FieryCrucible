@@ -44,6 +44,8 @@ public class DependencyFactory {
     var weakSharedInstances = [String:AnyObject](minimumCapacity: 8)
     var scopedInstances = [String:AnyObject](minimumCapacity: 8)
     
+    public init() { }
+    
     public func shared<T>(name: String, factory: @autoclosure () -> T, configure configureOrNil: ((T) -> ())? = nil) -> T {
         if let container = sharedInstances[name] as? StrongContainer<T> {
             return container.instance
