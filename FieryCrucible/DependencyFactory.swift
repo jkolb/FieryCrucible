@@ -1,5 +1,5 @@
 //
-// DependencyInjection.swift
+// DependencyFactory.swift
 // FieryCrucible
 //
 // Copyright (c) 2014 Justin Kolb - http://franticapparatus.net
