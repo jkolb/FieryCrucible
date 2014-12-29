@@ -50,11 +50,15 @@ func ==(lhs: DependencyFactory.InstanceKey, rhs: DependencyFactory.InstanceKey) 
 }
 
 public class DependencyFactory {
-    enum Lifecyle {
-        case Shared
-        case WeakShared
-        case Unshared
-        case Scoped
+    enum Lifecyle : String, Printable {
+        case Shared = "shared"
+        case WeakShared = "weakShared"
+        case Unshared = "unshared"
+        case Scoped = "scoped"
+        
+        var description: String {
+            return self.rawValue
+        }
     }
     
     struct InstanceKey : Hashable, Printable {
@@ -102,7 +106,6 @@ public class DependencyFactory {
     }
     
     public func unshared<T>(name: String, factory: @autoclosure () -> T, configure configureOrNil: ((T) -> ())? = nil) -> T {
-        // Tried using nil for instancePool and containerFactory, but compiler wouldn't accept it
         var unsharedInstances: [String:AnyObject] = [:]
         return inject(
             lifecyle: .Unshared,
@@ -135,7 +138,7 @@ public class DependencyFactory {
         let key = InstanceKey(lifecycle: lifecyle, name: name)
         
         if lifecyle != .Unshared && contains(instanceStack, key) {
-            fatalError("Circular dependency from \(instanceStack) to \(key) in initailizer")
+            fatalError("Circular dependency from one of \(instanceStack) to \(key) in initailizer")
         }
         
         instanceStack.append(key)
