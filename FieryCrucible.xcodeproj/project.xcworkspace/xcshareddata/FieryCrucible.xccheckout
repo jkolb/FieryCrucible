@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8806AFCA-C24F-4A40-BEF3-EA967525003E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FieryCrucible</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F94126D0F2594FB31E784A9C29CF993F60FBAC50</key>
+		<string>https://github.com/jkolb/FieryCrucible.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FieryCrucible.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F94126D0F2594FB31E784A9C29CF993F60FBAC50</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jkolb/FieryCrucible.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F94126D0F2594FB31E784A9C29CF993F60FBAC50</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F94126D0F2594FB31E784A9C29CF993F60FBAC50</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FieryCrucible</string>
+		</dict>
+	</array>
+</dict>
+</plist>
