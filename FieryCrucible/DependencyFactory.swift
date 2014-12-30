@@ -138,7 +138,7 @@ public class DependencyFactory {
         let key = InstanceKey(lifecycle: lifecyle, name: name)
         
         if lifecyle != .Unshared && contains(instanceStack, key) {
-            fatalError("Circular dependency from one of \(instanceStack) to \(key) in initailizer")
+            fatalError("Circular dependency from one of \(instanceStack) to \(key) in initializer")
         }
         
         instanceStack.append(key)
