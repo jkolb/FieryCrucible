@@ -83,7 +83,7 @@ public class DependencyFactory {
     
     public init() { }
     
-    public func shared<T>(name: String, factory: @autoclosure () -> T, configure configureOrNil: ((T) -> ())? = nil) -> T {
+    public func shared<T>(name: String, @autoclosure factory: () -> T, configure configureOrNil: ((T) -> ())? = nil) -> T {
         return inject(
             lifecyle: .Shared,
             name: name,
@@ -94,7 +94,7 @@ public class DependencyFactory {
         )
     }
     
-    public func weakShared<T: AnyObject>(name: String, factory: @autoclosure () -> T, configure configureOrNil: ((T) -> ())? = nil) -> T {
+    public func weakShared<T: AnyObject>(name: String, @autoclosure factory: () -> T, configure configureOrNil: ((T) -> ())? = nil) -> T {
         return inject(
             lifecyle: .WeakShared,
             name: name,
@@ -105,7 +105,7 @@ public class DependencyFactory {
         )
     }
     
-    public func unshared<T>(name: String, factory: @autoclosure () -> T, configure configureOrNil: ((T) -> ())? = nil) -> T {
+    public func unshared<T>(name: String, @autoclosure factory: () -> T, configure configureOrNil: ((T) -> ())? = nil) -> T {
         var unsharedInstances: [String:AnyObject] = [:]
         return inject(
             lifecyle: .Unshared,
@@ -117,7 +117,7 @@ public class DependencyFactory {
         )
     }
     
-    public func scoped<T>(name: String, factory: @autoclosure () -> T, configure configureOrNil: ((T) -> ())? = nil) -> T {
+    public func scoped<T>(name: String, @autoclosure factory: () -> T, configure configureOrNil: ((T) -> ())? = nil) -> T {
         return inject(
             lifecyle: .Scoped,
             name: name,
@@ -128,7 +128,7 @@ public class DependencyFactory {
         )
     }
     
-    func inject<T, C: InstanceContainer where C.InstanceType == T>(# lifecyle: Lifecyle, name: String, inout instancePool: [String:AnyObject], containerFactory: (T) -> C, factory: @autoclosure () -> T, configure configureOrNil: ((T) -> ())?) -> T {
+    func inject<T, C: InstanceContainer where C.InstanceType == T>(# lifecyle: Lifecyle, name: String, inout instancePool: [String:AnyObject], containerFactory: (T) -> C, @autoclosure factory: () -> T, configure configureOrNil: ((T) -> ())?) -> T {
         if let container = instancePool[name] as? C {
             if let instance = container.instance {
                 return instance
