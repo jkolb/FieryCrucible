@@ -39,7 +39,7 @@ You can either copy the source into your project, or setup a git submodle of thi
         func mainWindow() -> UIWindow {
             return shared {
                 "mainWindow",
-                factory: UIWindow(UIScreen.mainScreen().bounds),
+                factory: UIWindow(frame: UIScreen.mainScreen().bounds),
                 configure: { [unowned self] (instance) in
                     instance.rootViewController = self.rootViewController()
                 }
