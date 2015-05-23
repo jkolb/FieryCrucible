@@ -3,6 +3,16 @@ Fiery Crucible
 
 A minimalist type safe Swift dependency injector factory. Where all true instances are forged.
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
+#### Changelog
+
+#####Version 1.2.0
+* Should now work with Carthage
+* Whole Module Optimization has been enabled to speed up compile times
+* Tightened up the access restrictions on the API
+* You no longer have to specify the name parameter (see updated examples below)
+
 #### Features
 * Constructor injection
 * Setter injection
@@ -27,35 +37,23 @@ You can either copy the source into your project, or setup a git submodle of thi
     
     class CustomFactory : DependencyFactory {
         func application() -> CustomApplication {
-            return shared {
-                "application",
-                factory: CustomApplication(),
-                configure: { [unowned self] (instance) in
-                    instance.factory = self
-                }
+            return shared(CustomApplication()) { instance in
+                instance.factory = self
             }
         }
         
         func mainWindow() -> UIWindow {
-            return shared {
-                "mainWindow",
-                factory: UIWindow(frame: UIScreen.mainScreen().bounds),
-                configure: { [unowned self] (instance) in
-                    instance.rootViewController = self.rootViewController()
-                }
+            return shared(UIWindow(frame: UIScreen.mainScreen().bounds)) { instance in
+                instance.rootViewController = self.rootViewController()
             }
         }
         
         func rootViewController() -> UIViewController {
-            return scoped {
-                "rootViewController",
-                factory: UITabBarController(),
-                configure: { [unowned self] (instance) in
-                    instance.viewControllers = [
-                        self.tab0ViewController(),
-                        self.tab1ViewController(),
-                    ]
-                }
+            return scoped(UITabBarController()) { instance in
+                instance.viewControllers = [
+                    self.tab0ViewController(),
+                    self.tab1ViewController(),
+                ]
             }
         }
         

@@ -2,7 +2,7 @@
 // DependencyFactory.swift
 // FieryCrucible
 //
-// Copyright (c) 2014 Justin Kolb - http://franticapparatus.net
+// Copyright (c) 2015 Justin Kolb - http://franticapparatus.net
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,13 +23,13 @@
 // THE SOFTWARE.
 //
 
-protocol InstanceContainer : class {
+private protocol InstanceContainer : class {
     typealias InstanceType
     
     var instance: InstanceType? { get }
 }
 
-class StrongContainer<C> : InstanceContainer {
+private class StrongContainer<C> : InstanceContainer {
     var instance: C?
     
     init(instance: C) {
@@ -37,7 +37,7 @@ class StrongContainer<C> : InstanceContainer {
     }
 }
 
-class WeakContainer<C: AnyObject> : InstanceContainer {
+private class WeakContainer<C: AnyObject> : InstanceContainer {
     weak var instance: C?
     
     init(instance: C) {
@@ -45,12 +45,12 @@ class WeakContainer<C: AnyObject> : InstanceContainer {
     }
 }
 
-func ==(lhs: DependencyFactory.InstanceKey, rhs: DependencyFactory.InstanceKey) -> Bool {
+private  func ==(lhs: DependencyFactory.InstanceKey, rhs: DependencyFactory.InstanceKey) -> Bool {
     return (lhs.lifecycle == rhs.lifecycle) && (lhs.name == rhs.name)
 }
 
 public class DependencyFactory {
-    enum Lifecyle : String, Printable {
+    private enum Lifecyle : String, Printable {
         case Shared = "shared"
         case WeakShared = "weakShared"
         case Unshared = "unshared"
@@ -61,7 +61,7 @@ public class DependencyFactory {
         }
     }
     
-    struct InstanceKey : Hashable, Printable {
+    private struct InstanceKey : Hashable, Printable {
         let lifecycle: Lifecyle
         let name: String
         
@@ -74,38 +74,50 @@ public class DependencyFactory {
         }
     }
     
-    var sharedInstances: [String:AnyObject] = [:]
-    var weakSharedInstances: [String:AnyObject] = [:]
-    var scopedInstances: [String:AnyObject] = [:]
-    var instanceStack: [InstanceKey] = []
-    var configureStack: [() -> ()] = []
-    var requestDepth = 0
+    private var sharedInstances: [String:AnyObject] = [:]
+    private var weakSharedInstances: [String:AnyObject] = [:]
+    private var scopedInstances: [String:AnyObject] = [:]
+    private var instanceStack: [InstanceKey] = []
+    private var configureStack: [() -> ()] = []
+    private var requestDepth = 0
     
     public init() { }
+
+    public final func shared<T>(@autoclosure factory: () -> T, name: String = __FUNCTION__, configure: ((T) -> ())? = nil) -> T {
+        return shared(name, factory: factory, configure: configure)
+    }
     
-    public func shared<T>(name: String, @autoclosure factory: () -> T, configure configureOrNil: ((T) -> ())? = nil) -> T {
+    public final func shared<T>(name: String, @autoclosure factory: () -> T, configure: ((T) -> ())? = nil) -> T {
         return inject(
             lifecyle: .Shared,
             name: name,
             instancePool: &sharedInstances,
             containerFactory: { StrongContainer(instance: $0) },
             factory: factory,
-            configure: configureOrNil
+            configure: configure
         )
     }
+
+    public final func weakShared<T: AnyObject>(@autoclosure factory: () -> T, name: String = __FUNCTION__, configure: ((T) -> ())? = nil) -> T {
+        return weakShared(name, factory: factory, configure: configure)
+    }
     
-    public func weakShared<T: AnyObject>(name: String, @autoclosure factory: () -> T, configure configureOrNil: ((T) -> ())? = nil) -> T {
+    public final func weakShared<T: AnyObject>(name: String, @autoclosure factory: () -> T, configure: ((T) -> ())? = nil) -> T {
         return inject(
             lifecyle: .WeakShared,
             name: name,
             instancePool: &weakSharedInstances,
             containerFactory: { WeakContainer(instance: $0) },
             factory: factory,
-            configure: configureOrNil
+            configure: configure
         )
     }
+
+    public final func unshared<T>(@autoclosure factory: () -> T, name: String = __FUNCTION__, configure: ((T) -> ())? = nil) -> T {
+        return unshared(name, factory: factory, configure: configure)
+    }
     
-    public func unshared<T>(name: String, @autoclosure factory: () -> T, configure configureOrNil: ((T) -> ())? = nil) -> T {
+    public final func unshared<T>(name: String, @autoclosure factory: () -> T, configure: ((T) -> ())? = nil) -> T {
         var unsharedInstances: [String:AnyObject] = [:]
         return inject(
             lifecyle: .Unshared,
@@ -113,22 +125,26 @@ public class DependencyFactory {
             instancePool: &unsharedInstances,
             containerFactory: { StrongContainer(instance: $0) },
             factory: factory,
-            configure: configureOrNil
+            configure: configure
         )
     }
+
+    public final func scoped<T>(@autoclosure factory: () -> T, name: String = __FUNCTION__, configure: ((T) -> ())? = nil) -> T {
+        return scoped(name, factory: factory, configure: configure)
+    }
     
-    public func scoped<T>(name: String, @autoclosure factory: () -> T, configure configureOrNil: ((T) -> ())? = nil) -> T {
+    public final func scoped<T>(name: String, @autoclosure factory: () -> T, configure: ((T) -> ())? = nil) -> T {
         return inject(
             lifecyle: .Scoped,
             name: name,
             instancePool: &scopedInstances,
             containerFactory: { StrongContainer(instance: $0) },
             factory: factory,
-            configure: configureOrNil
+            configure: configure
         )
     }
     
-    func inject<T, C: InstanceContainer where C.InstanceType == T>(# lifecyle: Lifecyle, name: String, inout instancePool: [String:AnyObject], containerFactory: (T) -> C, @autoclosure factory: () -> T, configure configureOrNil: ((T) -> ())?) -> T {
+    private final func inject<T, C: InstanceContainer where C.InstanceType == T>(# lifecyle: Lifecyle, name: String, inout instancePool: [String:AnyObject], containerFactory: (T) -> C, @autoclosure factory: () -> T, configure: ((T) -> ())?) -> T {
         if let container = instancePool[name] as? C {
             if let instance = container.instance {
                 return instance
@@ -148,7 +164,7 @@ public class DependencyFactory {
         let container = containerFactory(instance)
         instancePool[name] = container
         
-        if let configure = configureOrNil {
+        if let configure = configure {
             configureStack.append({configure(instance)})
         }
         
