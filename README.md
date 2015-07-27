@@ -7,6 +7,9 @@ A minimalist type safe Swift dependency injector factory. Where all true instanc
 
 #### Changelog
 
+#####Version 1.3.0
+* Added support for Swift 2
+
 #####Version 1.2.0
 * Should now work with Carthage
 * Whole Module Optimization has been enabled to speed up compile times
