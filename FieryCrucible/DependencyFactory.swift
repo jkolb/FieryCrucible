@@ -30,18 +30,26 @@ private protocol InstanceContainer : class {
 }
 
 private class StrongContainer<C> : InstanceContainer {
-    var instance: C?
+    var strongInstance: C?
+    
+    var instance: C? {
+        return strongInstance
+    }
     
     init(instance: C) {
-        self.instance = instance
+        strongInstance = instance
     }
 }
 
 private class WeakContainer<C: AnyObject> : InstanceContainer {
-    weak var instance: C?
+    weak var weakInstance: C?
+    
+    var instance: C? {
+        return weakInstance
+    }
     
     init(instance: C) {
-        self.instance = instance
+        weakInstance = instance
     }
 }
 
@@ -50,7 +58,7 @@ private  func ==(lhs: DependencyFactory.InstanceKey, rhs: DependencyFactory.Inst
 }
 
 public class DependencyFactory {
-    private enum Lifecyle : String, Printable {
+    private enum Lifecyle : String, CustomStringConvertible {
         case Shared = "shared"
         case WeakShared = "weakShared"
         case Unshared = "unshared"
@@ -61,7 +69,7 @@ public class DependencyFactory {
         }
     }
     
-    private struct InstanceKey : Hashable, Printable {
+    private struct InstanceKey : Hashable, CustomStringConvertible {
         let lifecycle: Lifecyle
         let name: String
         
@@ -144,7 +152,7 @@ public class DependencyFactory {
         )
     }
     
-    private final func inject<T, C: InstanceContainer where C.InstanceType == T>(# lifecyle: Lifecyle, name: String, inout instancePool: [String:AnyObject], containerFactory: (T) -> C, @autoclosure factory: () -> T, configure: ((T) -> ())?) -> T {
+    private final func inject<T, C: InstanceContainer where C.InstanceType == T>(lifecyle  lifecyle: Lifecyle, name: String, inout instancePool: [String:AnyObject], containerFactory: (T) -> C, @autoclosure factory: () -> T, configure: ((T) -> ())?) -> T {
         if let container = instancePool[name] as? C {
             if let instance = container.instance {
                 return instance
@@ -153,7 +161,7 @@ public class DependencyFactory {
         
         let key = InstanceKey(lifecycle: lifecyle, name: name)
         
-        if lifecyle != .Unshared && contains(instanceStack, key) {
+        if lifecyle != .Unshared && instanceStack.contains(key) {
             fatalError("Circular dependency from one of \(instanceStack) to \(key) in initializer")
         }
         
