@@ -8,29 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		E53405B01A3020CE00A474C1 /* FieryCrucible.h in Headers */ = {isa = PBXBuildFile; fileRef = E53405AF1A3020CE00A474C1 /* FieryCrucible.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E53405B61A3020CF00A474C1 /* FieryCrucible.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E53405AA1A3020CE00A474C1 /* FieryCrucible.framework */; };
-		E53405BD1A3020CF00A474C1 /* FieryCrucibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53405BC1A3020CF00A474C1 /* FieryCrucibleTests.swift */; };
 		E5A928C81A32C0B60071875D /* DependencyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A928C71A32C0B60071875D /* DependencyFactory.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		E53405B71A3020CF00A474C1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E53405A11A3020CE00A474C1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E53405A91A3020CE00A474C1;
-			remoteInfo = FieryCrucible;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		E53405AA1A3020CE00A474C1 /* FieryCrucible.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FieryCrucible.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E53405AE1A3020CE00A474C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E53405AF1A3020CE00A474C1 /* FieryCrucible.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FieryCrucible.h; sourceTree = "<group>"; };
-		E53405B51A3020CF00A474C1 /* FieryCrucibleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FieryCrucibleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E53405BB1A3020CF00A474C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E53405BC1A3020CF00A474C1 /* FieryCrucibleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieryCrucibleTests.swift; sourceTree = "<group>"; };
 		E5A928C71A32C0B60071875D /* DependencyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyFactory.swift; sourceTree = "<group>"; };
+		E5F98A491C5B13300072BAF8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		E5F98A4B1C5B13370072BAF8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,22 +28,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E53405B21A3020CF00A474C1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E53405B61A3020CF00A474C1 /* FieryCrucible.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		E53405A01A3020CE00A474C1 = {
 			isa = PBXGroup;
 			children = (
+				E5F98A4B1C5B13370072BAF8 /* README.md */,
+				E5F98A491C5B13300072BAF8 /* LICENSE */,
 				E53405AC1A3020CE00A474C1 /* FieryCrucible */,
-				E53405B91A3020CF00A474C1 /* FieryCrucibleTests */,
 				E53405AB1A3020CE00A474C1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,7 +45,6 @@
 			isa = PBXGroup;
 			children = (
 				E53405AA1A3020CE00A474C1 /* FieryCrucible.framework */,
-				E53405B51A3020CF00A474C1 /* FieryCrucibleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,23 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				E53405AE1A3020CE00A474C1 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		E53405B91A3020CF00A474C1 /* FieryCrucibleTests */ = {
-			isa = PBXGroup;
-			children = (
-				E53405BC1A3020CF00A474C1 /* FieryCrucibleTests.swift */,
-				E53405BA1A3020CF00A474C1 /* Supporting Files */,
-			);
-			path = FieryCrucibleTests;
-			sourceTree = "<group>";
-		};
-		E53405BA1A3020CF00A474C1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				E53405BB1A3020CF00A474C1 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -137,24 +99,6 @@
 			productReference = E53405AA1A3020CE00A474C1 /* FieryCrucible.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E53405B41A3020CF00A474C1 /* FieryCrucibleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E53405C31A3020CF00A474C1 /* Build configuration list for PBXNativeTarget "FieryCrucibleTests" */;
-			buildPhases = (
-				E53405B11A3020CF00A474C1 /* Sources */,
-				E53405B21A3020CF00A474C1 /* Frameworks */,
-				E53405B31A3020CF00A474C1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E53405B81A3020CF00A474C1 /* PBXTargetDependency */,
-			);
-			name = FieryCrucibleTests;
-			productName = FieryCrucibleTests;
-			productReference = E53405B51A3020CF00A474C1 /* FieryCrucibleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -166,9 +110,6 @@
 				ORGANIZATIONNAME = "Justin Kolb";
 				TargetAttributes = {
 					E53405A91A3020CE00A474C1 = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
-					E53405B41A3020CF00A474C1 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
 				};
@@ -186,20 +127,12 @@
 			projectRoot = "";
 			targets = (
 				E53405A91A3020CE00A474C1 /* FieryCrucible */,
-				E53405B41A3020CF00A474C1 /* FieryCrucibleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E53405A81A3020CE00A474C1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E53405B31A3020CF00A474C1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -217,23 +150,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E53405B11A3020CF00A474C1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E53405BD1A3020CF00A474C1 /* FieryCrucibleTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E53405B81A3020CF00A474C1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E53405A91A3020CE00A474C1 /* FieryCrucible */;
-			targetProxy = E53405B71A3020CF00A474C1 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E53405BE1A3020CF00A474C1 /* Debug */ = {
@@ -272,7 +189,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -312,7 +229,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -355,38 +272,6 @@
 			};
 			name = Release;
 		};
-		E53405C41A3020CF00A474C1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = FieryCrucibleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.franticapparatus.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		E53405C51A3020CF00A474C1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = FieryCrucibleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.franticapparatus.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -404,15 +289,6 @@
 			buildConfigurations = (
 				E53405C11A3020CF00A474C1 /* Debug */,
 				E53405C21A3020CF00A474C1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E53405C31A3020CF00A474C1 /* Build configuration list for PBXNativeTarget "FieryCrucibleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E53405C41A3020CF00A474C1 /* Debug */,
-				E53405C51A3020CF00A474C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

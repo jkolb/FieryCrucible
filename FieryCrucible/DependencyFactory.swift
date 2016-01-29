@@ -1,8 +1,4 @@
-//
-// DependencyFactory.swift
-// FieryCrucible
-//
-// Copyright (c) 2015 Justin Kolb - http://franticapparatus.net
+// Copyright (c) 2016 Justin Kolb - http://franticapparatus.net
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,7 +17,6 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-//
 
 private protocol InstanceContainer : class {
     typealias InstanceType
@@ -90,7 +85,11 @@ public class DependencyFactory {
     private var requestDepth = 0
     
     public init() { }
-
+    
+    public final func shared<T>(@noescape factory factory: () -> T, name: String = __FUNCTION__, configure: ((T) -> ())? = nil) -> T {
+        return shared(name, factory: factory(), configure: configure)
+    }
+    
     public final func shared<T>(@autoclosure factory: () -> T, name: String = __FUNCTION__, configure: ((T) -> ())? = nil) -> T {
         return shared(name, factory: factory, configure: configure)
     }
@@ -105,7 +104,11 @@ public class DependencyFactory {
             configure: configure
         )
     }
-
+    
+    public final func weakShared<T: AnyObject>(@noescape factory factory: () -> T, name: String = __FUNCTION__, configure: ((T) -> ())? = nil) -> T {
+        return weakShared(name, factory: factory(), configure: configure)
+    }
+    
     public final func weakShared<T: AnyObject>(@autoclosure factory: () -> T, name: String = __FUNCTION__, configure: ((T) -> ())? = nil) -> T {
         return weakShared(name, factory: factory, configure: configure)
     }
@@ -120,7 +123,11 @@ public class DependencyFactory {
             configure: configure
         )
     }
-
+    
+    public final func unshared<T>(@noescape factory factory: () -> T, name: String = __FUNCTION__, configure: ((T) -> ())? = nil) -> T {
+        return unshared(name, factory: factory(), configure: configure)
+    }
+    
     public final func unshared<T>(@autoclosure factory: () -> T, name: String = __FUNCTION__, configure: ((T) -> ())? = nil) -> T {
         return unshared(name, factory: factory, configure: configure)
     }
@@ -136,7 +143,11 @@ public class DependencyFactory {
             configure: configure
         )
     }
-
+    
+    public final func scoped<T>(@noescape factory factory: () -> T, name: String = __FUNCTION__, configure: ((T) -> ())? = nil) -> T {
+        return scoped(name, factory: factory(), configure: configure)
+    }
+    
     public final func scoped<T>(@autoclosure factory: () -> T, name: String = __FUNCTION__, configure: ((T) -> ())? = nil) -> T {
         return scoped(name, factory: factory, configure: configure)
     }
