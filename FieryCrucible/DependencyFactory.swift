@@ -24,7 +24,7 @@
 //
 
 private protocol InstanceContainer : class {
-    typealias InstanceType
+    associatedtype InstanceType
     
     var instance: InstanceType? { get }
 }
@@ -91,7 +91,7 @@ public class DependencyFactory {
     
     public init() { }
 
-    public final func shared<T>(@autoclosure factory: () -> T, name: String = __FUNCTION__, configure: ((T) -> ())? = nil) -> T {
+    public final func shared<T>(@autoclosure factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
         return shared(name, factory: factory, configure: configure)
     }
     
@@ -106,7 +106,7 @@ public class DependencyFactory {
         )
     }
 
-    public final func weakShared<T: AnyObject>(@autoclosure factory: () -> T, name: String = __FUNCTION__, configure: ((T) -> ())? = nil) -> T {
+    public final func weakShared<T: AnyObject>(@autoclosure factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
         return weakShared(name, factory: factory, configure: configure)
     }
     
@@ -121,7 +121,7 @@ public class DependencyFactory {
         )
     }
 
-    public final func unshared<T>(@autoclosure factory: () -> T, name: String = __FUNCTION__, configure: ((T) -> ())? = nil) -> T {
+    public final func unshared<T>(@autoclosure factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
         return unshared(name, factory: factory, configure: configure)
     }
     
@@ -137,7 +137,7 @@ public class DependencyFactory {
         )
     }
 
-    public final func scoped<T>(@autoclosure factory: () -> T, name: String = __FUNCTION__, configure: ((T) -> ())? = nil) -> T {
+    public final func scoped<T>(@autoclosure factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
         return scoped(name, factory: factory, configure: configure)
     }
     
@@ -183,13 +183,13 @@ public class DependencyFactory {
             let delayedConfigures = configureStack
             configureStack.removeAll(keepCapacity: true)
             
-            ++requestDepth
+            requestDepth += 1
             
             for delayedConfigure in delayedConfigures {
                 delayedConfigure()
             }
             
-            --requestDepth
+            requestDepth -= 1
             
             if requestDepth == 0 {
                 // This marks the end of an entire instance request tree. Must do final cleanup here.
