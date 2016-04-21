@@ -7,6 +7,9 @@ A minimalist type safe Swift dependency injector factory. Where all true instanc
 
 #### Changelog
 
+#####Version 1.3.1
+* There is a new form of each method where you are now able to set properties directly after initialization has occured in the factory parameter, this allows you to setup the object (with non-circular dependencies) before the object becomes available to other objects. See the updated example below.
+
 #####Version 1.3.0
 * Added support for Swift 2
 
@@ -38,18 +41,25 @@ You can either copy the source into your project, or setup a git submodle of thi
     import FieryCrucible
     import UIKit
     
-    class CustomFactory : DependencyFactory {
+	class CustomFactory : DependencyFactory {
         func application() -> CustomApplication {
             return shared(CustomApplication()) { instance in
                 instance.factory = self
             }
         }
         
-        func mainWindow() -> UIWindow {
-            return shared(UIWindow(frame: UIScreen.mainScreen().bounds)) { instance in
-                instance.rootViewController = self.rootViewController()
-            }
-        }
+		func mainWindow() -> UIWindow {
+			return shared(
+				factory: {
+					let instance = UIWindow(frame: UIScreen.mainScreen().bounds)
+					instance.backgroundColor = UIColor.whiteColor()
+					return instance
+				},
+				configure: { instance in
+					instance.rootViewController = self.rootViewController()
+				}
+			)
+		}
         
         func rootViewController() -> UIViewController {
             return scoped(UITabBarController()) { instance in
