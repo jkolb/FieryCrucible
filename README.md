@@ -7,6 +7,9 @@ A minimalist type safe Swift dependency injector factory. Where all true instanc
 
 #### Changelog
 
+#####Version 1.3.2
+* Thanks to Tim Ward for updating code to support Swift 2.2.
+
 #####Version 1.3.1
 * There is a new form of each method where you are now able to set properties directly after initialization has occured in the factory parameter, this allows you to setup the object (with non-circular dependencies) before the object becomes available to other objects. See the updated example below.
 
