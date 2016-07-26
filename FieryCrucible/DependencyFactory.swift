@@ -86,7 +86,7 @@ public class DependencyFactory {
     
     public init() { }
     
-    public final func shared<T>(@noescape factory factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
+    public final func shared<T>(@noescape factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
         return shared(name, factory: factory(), configure: configure)
     }
     
@@ -105,7 +105,7 @@ public class DependencyFactory {
         )
     }
     
-    public final func weakShared<T: AnyObject>(@noescape factory factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
+    public final func weakShared<T: AnyObject>(@noescape factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
         return weakShared(name, factory: factory(), configure: configure)
     }
     
@@ -124,7 +124,7 @@ public class DependencyFactory {
         )
     }
     
-    public final func unshared<T>(@noescape factory factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
+    public final func unshared<T>(@noescape factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
         return unshared(name, factory: factory(), configure: configure)
     }
     
@@ -144,7 +144,7 @@ public class DependencyFactory {
         )
     }
     
-    public final func scoped<T>(@noescape factory factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
+    public final func scoped<T>(@noescape factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
         return scoped(name, factory: factory(), configure: configure)
     }
     
@@ -163,7 +163,7 @@ public class DependencyFactory {
         )
     }
     
-    private final func inject<T, C: InstanceContainer where C.InstanceType == T>(lifecyle  lifecyle: Lifecyle, name: String, inout instancePool: [String:AnyObject], containerFactory: (T) -> C, @autoclosure factory: () -> T, configure: ((T) -> ())?) -> T {
+    private final func inject<T, C: InstanceContainer where C.InstanceType == T>(lifecyle: Lifecyle, name: String, inout instancePool: [String:AnyObject], containerFactory: (T) -> C, @autoclosure factory: () -> T, configure: ((T) -> ())?) -> T {
         if let container = instancePool[name] as? C {
             if let instance = container.instance {
                 return instance
