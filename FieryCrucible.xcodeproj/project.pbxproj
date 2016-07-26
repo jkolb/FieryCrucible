@@ -111,6 +111,7 @@
 				TargetAttributes = {
 					E53405A91A3020CE00A474C1 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -253,6 +254,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.franticapparatus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -269,6 +271,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.franticapparatus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
