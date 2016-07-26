@@ -192,7 +192,7 @@ public class DependencyFactory {
             // copy of the current configure stack and clear it out for the upcoming requested
             // instances.
             let delayedConfigures = configureStack
-            configureStack.removeAll(keepCapacity: true)
+            configureStack.removeAll(keepingCapacity: true)
             
             requestDepth += 1
             
@@ -205,7 +205,7 @@ public class DependencyFactory {
             if requestDepth == 0 {
                 // This marks the end of an entire instance request tree. Must do final cleanup here.
                 // Make sure scoped instances survive until the entire request is complete.
-                scopedInstances.removeAll(keepCapacity: true)
+                scopedInstances.removeAll(keepingCapacity: true)
             }
         }
         
