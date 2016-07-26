@@ -94,7 +94,7 @@ public class DependencyFactory {
         return shared(name, factory: factory, configure: configure)
     }
     
-    public final func shared<T>(name: String, @autoclosure factory: () -> T, configure: ((T) -> ())? = nil) -> T {
+    public final func shared<T>(_ name: String, @autoclosure factory: () -> T, configure: ((T) -> ())? = nil) -> T {
         return inject(
             lifecyle: .Shared,
             name: name,
@@ -113,7 +113,7 @@ public class DependencyFactory {
         return weakShared(name, factory: factory, configure: configure)
     }
     
-    public final func weakShared<T: AnyObject>(name: String, @autoclosure factory: () -> T, configure: ((T) -> ())? = nil) -> T {
+    public final func weakShared<T: AnyObject>(_ name: String, @autoclosure factory: () -> T, configure: ((T) -> ())? = nil) -> T {
         return inject(
             lifecyle: .WeakShared,
             name: name,
@@ -132,7 +132,7 @@ public class DependencyFactory {
         return unshared(name, factory: factory, configure: configure)
     }
     
-    public final func unshared<T>(name: String, @autoclosure factory: () -> T, configure: ((T) -> ())? = nil) -> T {
+    public final func unshared<T>(_ name: String, @autoclosure factory: () -> T, configure: ((T) -> ())? = nil) -> T {
         var unsharedInstances: [String:AnyObject] = [:]
         return inject(
             lifecyle: .Unshared,
@@ -152,7 +152,7 @@ public class DependencyFactory {
         return scoped(name, factory: factory, configure: configure)
     }
     
-    public final func scoped<T>(name: String, @autoclosure factory: () -> T, configure: ((T) -> ())? = nil) -> T {
+    public final func scoped<T>(_ name: String, @autoclosure factory: () -> T, configure: ((T) -> ())? = nil) -> T {
         return inject(
             lifecyle: .Scoped,
             name: name,
