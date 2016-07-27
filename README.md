@@ -7,6 +7,9 @@ A minimalist type safe Swift dependency injector factory. Where all true instanc
 
 #### Changelog
 
+#####Version 1.3.3
+* Thanks to Or Rosenblatt for updating code to support Swift 3.0.
+
 #####Version 1.3.2
 * Thanks to Tim Ward for updating code to support Swift 2.2.
 
