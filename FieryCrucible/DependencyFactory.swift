@@ -86,15 +86,15 @@ public class DependencyFactory {
     
     public init() { }
     
-    public final func shared<T>(@noescape factory factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
+    public final func shared<T>(factory: @noescape () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
         return shared(name, factory: factory(), configure: configure)
     }
     
-    public final func shared<T>(@autoclosure factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
+    public final func shared<T>(factory: @autoclosure () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
         return shared(name, factory: factory, configure: configure)
     }
     
-    public final func shared<T>(name: String, @autoclosure factory: () -> T, configure: ((T) -> ())? = nil) -> T {
+    public final func shared<T>(_ name: String, factory: @autoclosure () -> T, configure: ((T) -> ())? = nil) -> T {
         return inject(
             lifecyle: .Shared,
             name: name,
@@ -105,15 +105,15 @@ public class DependencyFactory {
         )
     }
     
-    public final func weakShared<T: AnyObject>(@noescape factory factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
+    public final func weakShared<T: AnyObject>(factory: @noescape () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
         return weakShared(name, factory: factory(), configure: configure)
     }
     
-    public final func weakShared<T: AnyObject>(@autoclosure factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
+    public final func weakShared<T: AnyObject>(factory: @autoclosure () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
         return weakShared(name, factory: factory, configure: configure)
     }
     
-    public final func weakShared<T: AnyObject>(name: String, @autoclosure factory: () -> T, configure: ((T) -> ())? = nil) -> T {
+    public final func weakShared<T: AnyObject>(_ name: String, factory: @autoclosure () -> T, configure: ((T) -> ())? = nil) -> T {
         return inject(
             lifecyle: .WeakShared,
             name: name,
@@ -124,15 +124,15 @@ public class DependencyFactory {
         )
     }
     
-    public final func unshared<T>(@noescape factory factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
+    public final func unshared<T>(factory: @noescape () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
         return unshared(name, factory: factory(), configure: configure)
     }
     
-    public final func unshared<T>(@autoclosure factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
+    public final func unshared<T>(factory: @autoclosure () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
         return unshared(name, factory: factory, configure: configure)
     }
     
-    public final func unshared<T>(name: String, @autoclosure factory: () -> T, configure: ((T) -> ())? = nil) -> T {
+    public final func unshared<T>(_ name: String, factory: @autoclosure () -> T, configure: ((T) -> ())? = nil) -> T {
         var unsharedInstances: [String:AnyObject] = [:]
         return inject(
             lifecyle: .Unshared,
@@ -144,15 +144,15 @@ public class DependencyFactory {
         )
     }
     
-    public final func scoped<T>(@noescape factory factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
+    public final func scoped<T>(factory: @noescape () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
         return scoped(name, factory: factory(), configure: configure)
     }
     
-    public final func scoped<T>(@autoclosure factory: () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
+    public final func scoped<T>(factory: @autoclosure () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
         return scoped(name, factory: factory, configure: configure)
     }
     
-    public final func scoped<T>(name: String, @autoclosure factory: () -> T, configure: ((T) -> ())? = nil) -> T {
+    public final func scoped<T>(_ name: String, factory: @autoclosure () -> T, configure: ((T) -> ())? = nil) -> T {
         return inject(
             lifecyle: .Scoped,
             name: name,
@@ -163,7 +163,7 @@ public class DependencyFactory {
         )
     }
     
-    private final func inject<T, C: InstanceContainer where C.InstanceType == T>(lifecyle  lifecyle: Lifecyle, name: String, inout instancePool: [String:AnyObject], containerFactory: (T) -> C, @autoclosure factory: () -> T, configure: ((T) -> ())?) -> T {
+    private final func inject<T, C: InstanceContainer where C.InstanceType == T>(lifecyle: Lifecyle, name: String, instancePool: inout [String:AnyObject], containerFactory: (T) -> C, factory: @autoclosure () -> T, configure: ((T) -> ())?) -> T {
         if let container = instancePool[name] as? C {
             if let instance = container.instance {
                 return instance
@@ -192,7 +192,7 @@ public class DependencyFactory {
             // copy of the current configure stack and clear it out for the upcoming requested
             // instances.
             let delayedConfigures = configureStack
-            configureStack.removeAll(keepCapacity: true)
+            configureStack.removeAll(keepingCapacity: true)
             
             requestDepth += 1
             
@@ -205,7 +205,7 @@ public class DependencyFactory {
             if requestDepth == 0 {
                 // This marks the end of an entire instance request tree. Must do final cleanup here.
                 // Make sure scoped instances survive until the entire request is complete.
-                scopedInstances.removeAll(keepCapacity: true)
+                scopedInstances.removeAll(keepingCapacity: true)
             }
         }
         
