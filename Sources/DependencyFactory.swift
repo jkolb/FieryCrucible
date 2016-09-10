@@ -48,12 +48,12 @@ private class WeakContainer<C: AnyObject> : InstanceContainer {
     }
 }
 
-private  func ==(lhs: DependencyFactory.InstanceKey, rhs: DependencyFactory.InstanceKey) -> Bool {
+private func ==(lhs: DependencyFactory.InstanceKey, rhs: DependencyFactory.InstanceKey) -> Bool {
     return (lhs.lifecycle == rhs.lifecycle) && (lhs.name == rhs.name)
 }
 
-public class DependencyFactory {
-    private enum Lifecyle : String, CustomStringConvertible {
+open class DependencyFactory {
+    fileprivate enum Lifecyle : String, CustomStringConvertible {
         case Shared = "shared"
         case WeakShared = "weakShared"
         case Unshared = "unshared"
@@ -64,7 +64,7 @@ public class DependencyFactory {
         }
     }
     
-    private struct InstanceKey : Hashable, CustomStringConvertible {
+    fileprivate struct InstanceKey : Hashable, CustomStringConvertible {
         let lifecycle: Lifecyle
         let name: String
         
@@ -77,24 +77,20 @@ public class DependencyFactory {
         }
     }
     
-    private var sharedInstances: [String:AnyObject] = [:]
-    private var weakSharedInstances: [String:AnyObject] = [:]
-    private var scopedInstances: [String:AnyObject] = [:]
-    private var instanceStack: [InstanceKey] = []
-    private var configureStack: [() -> ()] = []
-    private var requestDepth = 0
+    fileprivate var sharedInstances: [String:AnyObject] = [:]
+    fileprivate var weakSharedInstances: [String:AnyObject] = [:]
+    fileprivate var scopedInstances: [String:AnyObject] = [:]
+    fileprivate var instanceStack: [InstanceKey] = []
+    fileprivate var configureStack: [() -> ()] = []
+    fileprivate var requestDepth = 0
     
     public init() { }
     
-    public final func shared<T>(factory: @noescape () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
-        return shared(name, factory: factory(), configure: configure)
+    public final func shared<T>(name: String = #function, factory: () -> T, configure: ((T) -> Void)? = nil) -> T {
+        return shared(name: name, factory(), configure: configure)
     }
     
-    public final func shared<T>(factory: @autoclosure () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
-        return shared(name, factory: factory, configure: configure)
-    }
-    
-    public final func shared<T>(_ name: String, factory: @autoclosure () -> T, configure: ((T) -> ())? = nil) -> T {
+    public final func shared<T>(name: String = #function, _ factory: @autoclosure () -> T, configure: ((T) -> Void)? = nil) -> T {
         return inject(
             lifecyle: .Shared,
             name: name,
@@ -105,15 +101,11 @@ public class DependencyFactory {
         )
     }
     
-    public final func weakShared<T: AnyObject>(factory: @noescape () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
-        return weakShared(name, factory: factory(), configure: configure)
+    public final func weakShared<T: AnyObject>(name: String = #function, factory: () -> T, configure: ((T) -> Void)? = nil) -> T {
+        return weakShared(name: name, factory(), configure: configure)
     }
     
-    public final func weakShared<T: AnyObject>(factory: @autoclosure () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
-        return weakShared(name, factory: factory, configure: configure)
-    }
-    
-    public final func weakShared<T: AnyObject>(_ name: String, factory: @autoclosure () -> T, configure: ((T) -> ())? = nil) -> T {
+    public final func weakShared<T: AnyObject>(name: String = #function, _ factory: @autoclosure () -> T, configure: ((T) -> Void)? = nil) -> T {
         return inject(
             lifecyle: .WeakShared,
             name: name,
@@ -124,15 +116,11 @@ public class DependencyFactory {
         )
     }
     
-    public final func unshared<T>(factory: @noescape () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
-        return unshared(name, factory: factory(), configure: configure)
+    public final func unshared<T>(name: String = #function, factory: () -> T, configure: ((T) -> Void)? = nil) -> T {
+        return unshared(name: name, factory(), configure: configure)
     }
     
-    public final func unshared<T>(factory: @autoclosure () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
-        return unshared(name, factory: factory, configure: configure)
-    }
-    
-    public final func unshared<T>(_ name: String, factory: @autoclosure () -> T, configure: ((T) -> ())? = nil) -> T {
+    public final func unshared<T>(name: String = #function, _ factory: @autoclosure () -> T, configure: ((T) -> Void)? = nil) -> T {
         var unsharedInstances: [String:AnyObject] = [:]
         return inject(
             lifecyle: .Unshared,
@@ -144,15 +132,11 @@ public class DependencyFactory {
         )
     }
     
-    public final func scoped<T>(factory: @noescape () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
-        return scoped(name, factory: factory(), configure: configure)
+    public final func scoped<T>(name: String = #function, factory: () -> T, configure: ((T) -> Void)? = nil) -> T {
+        return scoped(name: name, factory(), configure: configure)
     }
     
-    public final func scoped<T>(factory: @autoclosure () -> T, name: String = #function, configure: ((T) -> ())? = nil) -> T {
-        return scoped(name, factory: factory, configure: configure)
-    }
-    
-    public final func scoped<T>(_ name: String, factory: @autoclosure () -> T, configure: ((T) -> ())? = nil) -> T {
+    public final func scoped<T>(name: String = #function, _ factory: @autoclosure () -> T, configure: ((T) -> Void)? = nil) -> T {
         return inject(
             lifecyle: .Scoped,
             name: name,
@@ -163,7 +147,7 @@ public class DependencyFactory {
         )
     }
     
-    private final func inject<T, C: InstanceContainer where C.InstanceType == T>(lifecyle: Lifecyle, name: String, instancePool: inout [String:AnyObject], containerFactory: (T) -> C, factory: @autoclosure () -> T, configure: ((T) -> ())?) -> T {
+    fileprivate final func inject<T, C: InstanceContainer>(lifecyle: Lifecyle, name: String, instancePool: inout [String:AnyObject], containerFactory: (T) -> C, factory: @autoclosure () -> T, configure: ((T) -> Void)?) -> T where C.InstanceType == T {
         if let container = instancePool[name] as? C {
             if let instance = container.instance {
                 return instance

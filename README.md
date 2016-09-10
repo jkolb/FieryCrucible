@@ -7,6 +7,13 @@ A minimalist type safe Swift dependency injector factory. Where all true instanc
 
 #### Changelog
 
+#####Version 2.0.0
+* Updated for Swift 3.0 and Xcode 8 GM release
+* Initial attempt at Swift Package Manager support
+* Added tests to help make sure everything works as expected and to provide examples of usage
+* Cleaned up the API to remove the method that required a specific name parameter (left over from before #function was used for the name)
+* A belated thanks to Anton Beloglazov for help with fixing circular dependencies back around 1.0.0
+
 #####Version 1.3.3
 * Thanks to Or Rosenblatt for updating code to support Swift 3.0.
 
