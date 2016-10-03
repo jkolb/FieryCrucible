@@ -7,6 +7,9 @@ A minimalist type safe Swift dependency injector factory. Where all true instanc
 
 #### Changelog
 
+#####Version 2.0.3
+* Rebuild project and directory structure using Swift Package Manager.
+
 #####Version 2.0.2
 * Fix for Carthage building.
 * Skipped 2.0.1 as I forgot to update the README.
