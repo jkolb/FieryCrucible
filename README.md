@@ -7,6 +7,9 @@ A minimalist type safe Swift dependency injector factory. Where all true instanc
 
 #### Changelog
 
+#####Version 2.0.4
+* Undo .gitignore so xcodeproj changes can be checked in, this should fix Carthage being broken again.
+
 #####Version 2.0.3
 * Rebuild project and directory structure using Swift Package Manager.
 
