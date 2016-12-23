@@ -7,6 +7,9 @@ A minimalist type safe Swift dependency injector factory. Where all true instanc
 
 #### Changelog
 
+#####Version 2.1.0
+* Compiles on Ubuntu 16.04 using Swift 3.0.2.
+
 #####Version 2.0.4
 * Undo .gitignore so xcodeproj changes can be checked in, this should fix Carthage being broken again.
 
