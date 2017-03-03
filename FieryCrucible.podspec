@@ -11,5 +11,6 @@ A minimalist type safe Swift dependency injector factory. Where all true instanc
   s.source           = { :git => 'https://github.com/jkolb/FieryCrucible.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/nabobnick'
   s.ios.deployment_target = '8.0'
-  s.source_files     = 'Sources/*'
+  s.osx.deployment_target = '10.10'
+  s.source_files     = 'Sources/*.swift'
 end
