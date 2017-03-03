@@ -7,6 +7,9 @@ A minimalist type safe Swift dependency injector factory. Where all true instanc
 
 #### Changelog
 
+#####Version 2.1.1
+* Cocoapods support for iOS and OSX
+
 #####Version 2.1.0
 * Compiles on Ubuntu 16.04 using Swift 3.0.2.
 
