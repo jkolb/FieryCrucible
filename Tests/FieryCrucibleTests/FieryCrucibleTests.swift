@@ -115,6 +115,10 @@ class FieryCrucibleTests: XCTestCase {
         
         instanceA1 = nil
         XCTAssertEqual(TestInstance.countForName("A1"), 0)
+        
+        instanceA1 = testFactory.weakSharedA1()
+        XCTAssertEqual(instanceA1?.name, "A1")
+        XCTAssertEqual(instanceA1?.initCount, 1)
     }
     
     static var allTests : [(String, (FieryCrucibleTests) -> () throws -> Void)] {

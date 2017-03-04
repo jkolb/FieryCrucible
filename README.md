@@ -7,6 +7,9 @@ A minimalist type safe Swift dependency injector factory. Where all true instanc
 
 #### Changelog
 
+#####Version 2.1.2
+* Fixed a bug where calling a weakShared method more than once would result in a crash. Added a test do detect the crash.
+
 #####Version 2.1.1
 * Cocoapods support for iOS and OSX
 

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E5F0532C1DA1E7730061A18D /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = E5F0532B1DA1E7730061A18D /* README.md */; };
 		_LinkFileRef_FieryCrucible_via_FieryCrucibleTests /* FieryCrucible.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_FieryCrucible" /* FieryCrucible.framework */; };
 		__src_cc_ref_Sources/DependencyFactory.swift /* DependencyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/DependencyFactory.swift /* DependencyFactory.swift */; };
 		__src_cc_ref_Tests/FieryCrucibleTests/FieryCrucibleTests.swift /* FieryCrucibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/FieryCrucibleTests/FieryCrucibleTests.swift /* FieryCrucibleTests.swift */; };
@@ -192,7 +191,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				E5F0532C1DA1E7730061A18D /* README.md in Sources */,
 				__src_cc_ref_Sources/DependencyFactory.swift /* DependencyFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

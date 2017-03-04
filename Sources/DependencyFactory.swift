@@ -69,6 +69,10 @@ open class DependencyFactory {
     }
     
     public final func shared<T>(name: String = #function, _ factory: @autoclosure () -> T, configure: ((T) -> Void)? = nil) -> T {
+        if let instance = sharedInstances[name] as? T {
+            return instance
+        }
+        
         return inject(
             lifecyle: .shared,
             name: name,
@@ -83,6 +87,12 @@ open class DependencyFactory {
     }
     
     public final func weakShared<T: AnyObject>(name: String = #function, _ factory: @autoclosure () -> T, configure: ((T) -> Void)? = nil) -> T {
+        if let weakInstance = weakSharedInstances[name] as? Weak<T> {
+            if let instance = weakInstance.instance {
+                return instance
+            }
+        }
+
         var instance: T! // Keep instance alive for duration of method
         let weakInstance: Weak<T> = inject(
             lifecyle: .weakShared,
@@ -117,6 +127,10 @@ open class DependencyFactory {
     }
     
     public final func scoped<T>(name: String = #function, _ factory: @autoclosure () -> T, configure: ((T) -> Void)? = nil) -> T {
+        if let instance = scopedInstances[name] as? T {
+            return instance
+        }
+        
         return inject(
             lifecyle: .scoped,
             name: name,
@@ -127,10 +141,6 @@ open class DependencyFactory {
     }
     
     private final func inject<T>(lifecyle: Lifecyle, name: String, instances: inout [String:Any], factory: () -> T, configure: ((T) -> Void)?) -> T {
-        if let instance = instances[name] as? T {
-            return instance
-        }
-        
         let key = InstanceKey(lifecycle: lifecyle, name: name)
         
         if lifecyle != .unshared && instanceStack.contains(key) {
