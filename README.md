@@ -7,49 +7,49 @@ A minimalist type safe Swift dependency injector factory. Where all true instanc
 
 #### Changelog
 
-#####Version 2.1.3
+##### Version 2.1.3
 * Forgot to update podspec version number.
 
-#####Version 2.1.2
+##### Version 2.1.2
 * Fixed a bug where calling a weakShared method more than once would result in a crash. Added a test do detect the crash.
 
-#####Version 2.1.1
+##### Version 2.1.1
 * Cocoapods support for iOS and OSX
 
-#####Version 2.1.0
+##### Version 2.1.0
 * Compiles on Ubuntu 16.04 using Swift 3.0.2.
 
-#####Version 2.0.4
+##### Version 2.0.4
 * Undo .gitignore so xcodeproj changes can be checked in, this should fix Carthage being broken again.
 
-#####Version 2.0.3
+##### Version 2.0.3
 * Rebuild project and directory structure using Swift Package Manager.
 
-#####Version 2.0.2
+##### Version 2.0.2
 * Fix for Carthage building.
 * Skipped 2.0.1 as I forgot to update the README.
 * Thanks to Alexander Baranovski for pointing out the breakage.
 
-#####Version 2.0.0
+##### Version 2.0.0
 * Updated for Swift 3.0 and Xcode 8 GM release
 * Initial attempt at Swift Package Manager support
 * Added tests to help make sure everything works as expected and to provide examples of usage
 * Cleaned up the API to remove the method that required a specific name parameter (left over from before #function was used for the name)
 * A belated thanks to Anton Beloglazov for help with fixing circular dependencies back around 1.0.0
 
-#####Version 1.3.3
+##### Version 1.3.3
 * Thanks to Or Rosenblatt for updating code to support Swift 3.0.
 
-#####Version 1.3.2
+##### Version 1.3.2
 * Thanks to Tim Ward for updating code to support Swift 2.2.
 
-#####Version 1.3.1
+##### Version 1.3.1
 * There is a new form of each method where you are now able to set properties directly after initialization has occured in the factory parameter, this allows you to setup the object (with non-circular dependencies) before the object becomes available to other objects. See the updated example below.
 
-#####Version 1.3.0
+##### Version 1.3.0
 * Added support for Swift 2
 
-#####Version 1.2.0
+##### Version 1.2.0
 * Should now work with Carthage
 * Whole Module Optimization has been enabled to speed up compile times
 * Tightened up the access restrictions on the API
