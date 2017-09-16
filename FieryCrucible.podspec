@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'FieryCrucible'
-  s.version          = '3.0.0'
+  s.version          = '3.0.1'
   s.summary          = 'A minimalist type safe Swift dependency injection library.'
   s.description      = <<-DESC
 A minimalist type safe Swift dependency injector factory. Where all true instances are forged.
@@ -12,5 +12,5 @@ A minimalist type safe Swift dependency injector factory. Where all true instanc
   s.social_media_url = 'https://twitter.com/nabobnick'
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.10'
-  s.source_files     = 'Sources/*.swift'
+  s.source_files     = 'Sources/FieryCrucible/*.swift'
 end

@@ -7,6 +7,9 @@ A minimalist type safe Swift dependency injector factory. Where all true instanc
 
 #### Changelog
 
+##### Version 3.0.1
+* Fix Cocoapods support
+
 ##### Version 3.0.0
 * Swift 4 support
 
