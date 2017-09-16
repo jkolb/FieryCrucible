@@ -7,6 +7,9 @@ A minimalist type safe Swift dependency injector factory. Where all true instanc
 
 #### Changelog
 
+##### Version 3.0.0
+* Swift 4 support
+
 ##### Version 2.1.3
 * Forgot to update podspec version number.
 

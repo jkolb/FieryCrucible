@@ -1,324 +1,483 @@
 // !$*UTF8*$!
 {
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		_LinkFileRef_FieryCrucible_via_FieryCrucibleTests /* FieryCrucible.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_FieryCrucible" /* FieryCrucible.framework */; };
-		__src_cc_ref_Sources/DependencyFactory.swift /* DependencyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/DependencyFactory.swift /* DependencyFactory.swift */; };
-		__src_cc_ref_Tests/FieryCrucibleTests/FieryCrucibleTests.swift /* FieryCrucibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/FieryCrucibleTests/FieryCrucibleTests.swift /* FieryCrucibleTests.swift */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		E5F053291DA1E7650061A18D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = __RootObject_ /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "______Target_FieryCrucible";
-			remoteInfo = FieryCrucible;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		E5F0532A1DA1E7730061A18D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		E5F0532B1DA1E7730061A18D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		__PBXFileRef_FieryCrucible.xcodeproj/Configs/Project.xcconfig /* FieryCrucible.xcodeproj/Configs/Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = FieryCrucible.xcodeproj/Configs/Project.xcconfig; sourceTree = "<group>"; };
-		__PBXFileRef_Package.swift /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/DependencyFactory.swift /* DependencyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyFactory.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/FieryCrucibleTests/FieryCrucibleTests.swift /* FieryCrucibleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieryCrucibleTests.swift; sourceTree = "<group>"; };
-		"_____Product_FieryCrucible" /* FieryCrucible.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FieryCrucible.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"_____Product_FieryCrucibleTests" /* FieryCrucibleTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = FieryCrucibleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		"___LinkPhase_FieryCrucible" /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		"___LinkPhase_FieryCrucibleTests" /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 0;
-			files = (
-				_LinkFileRef_FieryCrucible_via_FieryCrucibleTests /* FieryCrucible.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		TestProducts_ /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				"_____Product_FieryCrucibleTests" /* FieryCrucibleTests.xctest */,
-			);
-			name = Tests;
-			sourceTree = "<group>";
-		};
-		"___RootGroup_" = {
-			isa = PBXGroup;
-			children = (
-				E5F0532A1DA1E7730061A18D /* LICENSE */,
-				E5F0532B1DA1E7730061A18D /* README.md */,
-				__PBXFileRef_Package.swift /* Package.swift */,
-				"_____Configs_" /* Configs */,
-				"_____Sources_" /* Sources */,
-				"_______Tests_" /* Tests */,
-				"____Products_" /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		"____Products_" /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				TestProducts_ /* Tests */,
-				"_____Product_FieryCrucible" /* FieryCrucible.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		"_____Configs_" /* Configs */ = {
-			isa = PBXGroup;
-			children = (
-				__PBXFileRef_FieryCrucible.xcodeproj/Configs/Project.xcconfig /* FieryCrucible.xcodeproj/Configs/Project.xcconfig */,
-			);
-			name = Configs;
-			sourceTree = "<group>";
-		};
-		"_____Sources_" /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				"_______Group_FieryCrucible" /* FieryCrucible */,
-			);
-			name = Sources;
-			sourceTree = "<group>";
-		};
-		"_______Group_FieryCrucible" /* FieryCrucible */ = {
-			isa = PBXGroup;
-			children = (
-				__PBXFileRef_Sources/DependencyFactory.swift /* DependencyFactory.swift */,
-			);
-			name = FieryCrucible;
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		"_______Group_FieryCrucibleTests" /* FieryCrucibleTests */ = {
-			isa = PBXGroup;
-			children = (
-				__PBXFileRef_Tests/FieryCrucibleTests/FieryCrucibleTests.swift /* FieryCrucibleTests.swift */,
-			);
-			name = FieryCrucibleTests;
-			path = Tests/FieryCrucibleTests;
-			sourceTree = "<group>";
-		};
-		"_______Tests_" /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				"_______Group_FieryCrucibleTests" /* FieryCrucibleTests */,
-			);
-			name = Tests;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		"______Target_FieryCrucible" /* FieryCrucible */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = "_______Confs_FieryCrucible" /* Build configuration list for PBXNativeTarget "FieryCrucible" */;
-			buildPhases = (
-				CompilePhase_FieryCrucible /* Sources */,
-				"___LinkPhase_FieryCrucible" /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = FieryCrucible;
-			productName = FieryCrucible;
-			productReference = "_____Product_FieryCrucible" /* FieryCrucible.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		"______Target_FieryCrucibleTests" /* FieryCrucibleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = "_______Confs_FieryCrucibleTests" /* Build configuration list for PBXNativeTarget "FieryCrucibleTests" */;
-			buildPhases = (
-				CompilePhase_FieryCrucibleTests /* Sources */,
-				"___LinkPhase_FieryCrucibleTests" /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				__Dependency_FieryCrucible /* PBXTargetDependency */,
-			);
-			name = FieryCrucibleTests;
-			productName = FieryCrucibleTests;
-			productReference = "_____Product_FieryCrucibleTests" /* FieryCrucibleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		__RootObject_ /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 9999;
-			};
-			buildConfigurationList = "___RootConfs_" /* Build configuration list for PBXProject "FieryCrucible" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = "___RootGroup_";
-			productRefGroup = "____Products_" /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				"______Target_FieryCrucible" /* FieryCrucible */,
-				"______Target_FieryCrucibleTests" /* FieryCrucibleTests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXSourcesBuildPhase section */
-		CompilePhase_FieryCrucible /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 0;
-			files = (
-				__src_cc_ref_Sources/DependencyFactory.swift /* DependencyFactory.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CompilePhase_FieryCrucibleTests /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 0;
-			files = (
-				__src_cc_ref_Tests/FieryCrucibleTests/FieryCrucibleTests.swift /* FieryCrucibleTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		__Dependency_FieryCrucible /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "______Target_FieryCrucible" /* FieryCrucible */;
-			targetProxy = E5F053291DA1E7650061A18D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin XCBuildConfiguration section */
-		_ReleaseConf_FieryCrucible /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
-				INFOPLIST_FILE = FieryCrucible.xcodeproj/FieryCrucible_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = FieryCrucible;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		_ReleaseConf_FieryCrucibleTests /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
-				INFOPLIST_FILE = FieryCrucible.xcodeproj/FieryCrucibleTests_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		"___DebugConf_FieryCrucible" /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
-				INFOPLIST_FILE = FieryCrucible.xcodeproj/FieryCrucible_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = FieryCrucible;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		"___DebugConf_FieryCrucibleTests" /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
-				INFOPLIST_FILE = FieryCrucible.xcodeproj/FieryCrucibleTests_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		"_____Release_" /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = __PBXFileRef_FieryCrucible.xcodeproj/Configs/Project.xcconfig /* FieryCrucible.xcodeproj/Configs/Project.xcconfig */;
-			buildSettings = {
-			};
-			name = Release;
-		};
-		"_______Debug_" /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = __PBXFileRef_FieryCrucible.xcodeproj/Configs/Project.xcconfig /* FieryCrucible.xcodeproj/Configs/Project.xcconfig */;
-			buildSettings = {
-			};
-			name = Debug;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		"___RootConfs_" /* Build configuration list for PBXProject "FieryCrucible" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				"_______Debug_" /* Debug */,
-				"_____Release_" /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		"_______Confs_FieryCrucible" /* Build configuration list for PBXNativeTarget "FieryCrucible" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				"___DebugConf_FieryCrucible" /* Debug */,
-				_ReleaseConf_FieryCrucible /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		"_______Confs_FieryCrucibleTests" /* Build configuration list for PBXNativeTarget "FieryCrucibleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				"___DebugConf_FieryCrucibleTests" /* Debug */,
-				_ReleaseConf_FieryCrucibleTests /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = __RootObject_ /* Project object */;
+   archiveVersion = "1";
+   objects = {
+      "FieryCrucible::FieryCrucible::Product" = {
+         isa = "PBXFileReference";
+         path = "FieryCrucible.framework";
+         sourceTree = "BUILT_PRODUCTS_DIR";
+      };
+      "FieryCrucible::FieryCrucible" = {
+         isa = "PBXNativeTarget";
+         buildConfigurationList = "OBJ_32";
+         buildPhases = (
+            "OBJ_35",
+            "OBJ_37",
+         );
+         dependencies = (
+         );
+         name = "FieryCrucible";
+         productName = "FieryCrucible";
+         productReference = "FieryCrucible::FieryCrucible::Product";
+         productType = "com.apple.product-type.framework";
+      };
+      "FieryCrucible::FieryCruciblePackageTests::ProductTarget" = {
+         isa = "PBXAggregateTarget";
+         buildConfigurationList = "OBJ_39";
+         buildPhases = (
+         );
+         dependencies = (
+            "OBJ_42",
+         );
+         name = "FieryCruciblePackageTests";
+         productName = "FieryCruciblePackageTests";
+      };
+      "FieryCrucible::FieryCrucibleTests::Product" = {
+         isa = "PBXFileReference";
+         path = "FieryCrucibleTests.xctest";
+         sourceTree = "BUILT_PRODUCTS_DIR";
+      };
+      "FieryCrucible::FieryCrucibleTests" = {
+         isa = "PBXNativeTarget";
+         buildConfigurationList = "OBJ_23";
+         buildPhases = (
+            "OBJ_26",
+            "OBJ_28",
+         );
+         dependencies = (
+            "OBJ_30",
+         );
+         name = "FieryCrucibleTests";
+         productName = "FieryCrucibleTests";
+         productReference = "FieryCrucible::FieryCrucibleTests::Product";
+         productType = "com.apple.product-type.bundle.unit-test";
+      };
+      "FieryCrucible::SwiftPMPackageDescription" = {
+         isa = "PBXNativeTarget";
+         buildConfigurationList = "OBJ_17";
+         buildPhases = (
+            "OBJ_20",
+         );
+         dependencies = (
+         );
+         name = "FieryCruciblePackageDescription";
+         productName = "FieryCruciblePackageDescription";
+         productType = "com.apple.product-type.framework";
+      };
+      "OBJ_1" = {
+         isa = "PBXProject";
+         attributes = {
+            LastUpgradeCheck = "9999";
+         };
+         buildConfigurationList = "OBJ_2";
+         compatibilityVersion = "Xcode 3.2";
+         developmentRegion = "English";
+         hasScannedForEncodings = "0";
+         knownRegions = (
+            "en",
+         );
+         mainGroup = "OBJ_5";
+         productRefGroup = "OBJ_13";
+         projectDirPath = ".";
+         targets = (
+            "FieryCrucible::SwiftPMPackageDescription",
+            "FieryCrucible::FieryCrucibleTests",
+            "FieryCrucible::FieryCrucible",
+            "FieryCrucible::FieryCruciblePackageTests::ProductTarget",
+         );
+      };
+      "OBJ_10" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_11",
+         );
+         name = "Tests";
+         path = "";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_11" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_12",
+         );
+         name = "FieryCrucibleTests";
+         path = "Tests/FieryCrucibleTests";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_12" = {
+         isa = "PBXFileReference";
+         path = "FieryCrucibleTests.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_13" = {
+         isa = "PBXGroup";
+         children = (
+            "FieryCrucible::FieryCrucibleTests::Product",
+            "FieryCrucible::FieryCrucible::Product",
+         );
+         name = "Products";
+         path = "";
+         sourceTree = "BUILT_PRODUCTS_DIR";
+      };
+      "OBJ_17" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_18",
+            "OBJ_19",
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Debug";
+      };
+      "OBJ_18" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "4",
+               "-I",
+               "/home/jkolb/swift-4.0.0/usr/lib/swift/pm/4",
+               "-sdk",
+               "/",
+            );
+            SWIFT_VERSION = "4.0";
+         };
+         name = "Debug";
+      };
+      "OBJ_19" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "4",
+               "-I",
+               "/home/jkolb/swift-4.0.0/usr/lib/swift/pm/4",
+               "-sdk",
+               "/",
+            );
+            SWIFT_VERSION = "4.0";
+         };
+         name = "Release";
+      };
+      "OBJ_2" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_3",
+            "OBJ_4",
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Debug";
+      };
+      "OBJ_20" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_21",
+         );
+      };
+      "OBJ_21" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_6";
+      };
+      "OBJ_23" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_24",
+            "OBJ_25",
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Debug";
+      };
+      "OBJ_24" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks",
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+            );
+            INFOPLIST_FILE = "FieryCrucible.xcodeproj/FieryCrucibleTests_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "@loader_path/../Frameworks",
+               "@loader_path/Frameworks",
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)",
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+            );
+            SWIFT_VERSION = "4.0";
+            TARGET_NAME = "FieryCrucibleTests";
+         };
+         name = "Debug";
+      };
+      "OBJ_25" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks",
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+            );
+            INFOPLIST_FILE = "FieryCrucible.xcodeproj/FieryCrucibleTests_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "@loader_path/../Frameworks",
+               "@loader_path/Frameworks",
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)",
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+            );
+            SWIFT_VERSION = "4.0";
+            TARGET_NAME = "FieryCrucibleTests";
+         };
+         name = "Release";
+      };
+      "OBJ_26" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_27",
+         );
+      };
+      "OBJ_27" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_12";
+      };
+      "OBJ_28" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_29",
+         );
+      };
+      "OBJ_29" = {
+         isa = "PBXBuildFile";
+         fileRef = "FieryCrucible::FieryCrucible::Product";
+      };
+      "OBJ_3" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            CLANG_ENABLE_OBJC_ARC = "YES";
+            COMBINE_HIDPI_IMAGES = "YES";
+            COPY_PHASE_STRIP = "NO";
+            DEBUG_INFORMATION_FORMAT = "dwarf";
+            DYLIB_INSTALL_NAME_BASE = "@rpath";
+            ENABLE_NS_ASSERTIONS = "YES";
+            GCC_OPTIMIZATION_LEVEL = "0";
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            ONLY_ACTIVE_ARCH = "YES";
+            OTHER_SWIFT_FLAGS = (
+               "-DXcode",
+            );
+            PRODUCT_NAME = "$(TARGET_NAME)";
+            SDKROOT = "macosx";
+            SUPPORTED_PLATFORMS = (
+               "macosx",
+               "iphoneos",
+               "iphonesimulator",
+               "appletvos",
+               "appletvsimulator",
+               "watchos",
+               "watchsimulator",
+            );
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = "SWIFT_PACKAGE";
+            SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+            USE_HEADERMAP = "NO";
+         };
+         name = "Debug";
+      };
+      "OBJ_30" = {
+         isa = "PBXTargetDependency";
+         target = "FieryCrucible::FieryCrucible";
+      };
+      "OBJ_32" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_33",
+            "OBJ_34",
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Debug";
+      };
+      "OBJ_33" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks",
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+            );
+            INFOPLIST_FILE = "FieryCrucible.xcodeproj/FieryCrucible_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)",
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "FieryCrucible";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_VERSION = "4.0";
+            TARGET_NAME = "FieryCrucible";
+         };
+         name = "Debug";
+      };
+      "OBJ_34" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks",
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+            );
+            INFOPLIST_FILE = "FieryCrucible.xcodeproj/FieryCrucible_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)",
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "FieryCrucible";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_VERSION = "4.0";
+            TARGET_NAME = "FieryCrucible";
+         };
+         name = "Release";
+      };
+      "OBJ_35" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_36",
+         );
+      };
+      "OBJ_36" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_9";
+      };
+      "OBJ_37" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+         );
+      };
+      "OBJ_39" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_40",
+            "OBJ_41",
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Debug";
+      };
+      "OBJ_4" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            CLANG_ENABLE_OBJC_ARC = "YES";
+            COMBINE_HIDPI_IMAGES = "YES";
+            COPY_PHASE_STRIP = "YES";
+            DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+            DYLIB_INSTALL_NAME_BASE = "@rpath";
+            GCC_OPTIMIZATION_LEVEL = "s";
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_SWIFT_FLAGS = (
+               "-DXcode",
+            );
+            PRODUCT_NAME = "$(TARGET_NAME)";
+            SDKROOT = "macosx";
+            SUPPORTED_PLATFORMS = (
+               "macosx",
+               "iphoneos",
+               "iphonesimulator",
+               "appletvos",
+               "appletvsimulator",
+               "watchos",
+               "watchsimulator",
+            );
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = "SWIFT_PACKAGE";
+            SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+            USE_HEADERMAP = "NO";
+         };
+         name = "Release";
+      };
+      "OBJ_40" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+         };
+         name = "Debug";
+      };
+      "OBJ_41" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+         };
+         name = "Release";
+      };
+      "OBJ_42" = {
+         isa = "PBXTargetDependency";
+         target = "FieryCrucible::FieryCrucibleTests";
+      };
+      "OBJ_5" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_6",
+            "OBJ_7",
+            "OBJ_10",
+            "OBJ_13",
+         );
+         path = "";
+         sourceTree = "<group>";
+      };
+      "OBJ_6" = {
+         isa = "PBXFileReference";
+         explicitFileType = "sourcecode.swift";
+         path = "Package.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_7" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_8",
+         );
+         name = "Sources";
+         path = "";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_8" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_9",
+         );
+         name = "FieryCrucible";
+         path = "Sources/FieryCrucible";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_9" = {
+         isa = "PBXFileReference";
+         path = "DependencyFactory.swift";
+         sourceTree = "<group>";
+      };
+   };
+   objectVersion = "46";
+   rootObject = "OBJ_1";
 }
