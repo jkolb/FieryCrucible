@@ -7,6 +7,9 @@ A minimalist type safe Swift dependency injector factory. Where all true instanc
 
 #### Changelog
 
+##### Version 3.0.2
+* Add deployment targets to Xcode project to help with Carthage support.
+
 ##### Version 3.0.1
 * Fix Cocoapods support
 
