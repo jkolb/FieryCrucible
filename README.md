@@ -83,56 +83,58 @@ You can either copy the source into your project, or setup a git submodle of thi
 
 #### A code example
 
-    import FieryCrucible
-    import UIKit
-    
-	class CustomFactory : DependencyFactory {
-        func application() -> CustomApplication {
-            return shared(CustomApplication()) { instance in
-                instance.factory = self
-            }
-        }
-        
-		func mainWindow() -> UIWindow {
-			return shared(
-				factory: {
-					let instance = UIWindow(frame: UIScreen.mainScreen().bounds)
-					instance.backgroundColor = UIColor.whiteColor()
-					return instance
-				},
-				configure: { instance in
-					instance.rootViewController = self.rootViewController()
-				}
-			)
-		}
-        
-        func rootViewController() -> UIViewController {
-            return scoped(UITabBarController()) { instance in
-                instance.viewControllers = [
-                    self.tab0ViewController(),
-                    self.tab1ViewController(),
-                ]
-            }
-        }
-        
-        ...
-    }
-    
-    class CustomApplication {
-        var factory: CustomFactory!
-        
-        func launch() {
-            factory.mainWindow().makeKeyAndVisible()
+```Swift
+import FieryCrucible
+import UIKit
+
+class CustomFactory : DependencyFactory {
+    func application() -> CustomApplication {
+        return shared(CustomApplication()) { instance in
+            instance.factory = self
         }
     }
     
-    @UIApplicationMain
-    class AppDelegate: UIResponder, UIApplicationDelegate {
-        var factory: CustomFactory!
+	func mainWindow() -> UIWindow {
+		return shared(
+			factory: {
+				let instance = UIWindow(frame: UIScreen.mainScreen().bounds)
+				instance.backgroundColor = UIColor.whiteColor()
+				return instance
+			},
+			configure: { instance in
+				instance.rootViewController = self.rootViewController()
+			}
+		)
+	}
     
-        func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-            factory = CustomFactory()
-            factory.application().launch()
-            return true
+    func rootViewController() -> UIViewController {
+        return scoped(UITabBarController()) { instance in
+            instance.viewControllers = [
+                self.tab0ViewController(),
+                self.tab1ViewController(),
+            ]
         }
     }
+    
+    ...
+}
+
+class CustomApplication {
+    var factory: CustomFactory!
+    
+    func launch() {
+        factory.mainWindow().makeKeyAndVisible()
+    }
+}
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    var factory: CustomFactory!
+
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        factory = CustomFactory()
+        factory.application().launch()
+        return true
+    }
+}
+```
